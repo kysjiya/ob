@@ -4,7 +4,6 @@ create table Registered(
  registered_id INTEGER PRIMARY KEY IDENTITY(1,1),
  ATM_pin VARCHAR (200),
  debitcard_number Varchar(200) unique,
- email VARCHAR (200),
  username VARCHAR(200) UNIQUE,
  user_pass VARCHAR(200),
 )
@@ -83,11 +82,11 @@ CREATE TABLE Users(
     FOREIGN KEY (registered_id) REFERENCES Registered(registered_id) ON DELETE CASCADE,
     FOREIGN KEY (User_Role_Id) REFERENCES UserRole(User_Role_Id) ON DELETE CASCADE
 );
-INSERT INTO Registered (ATM_pin, debitcard_number, email, username, user_pass)
+INSERT INTO Registered (ATM_pin, debitcard_number, username, user_pass)
 VALUES 
-    ('1234', '1234567890123456' , 'johndoe@gmail.com', 'john_doe', 'password123'),
-    ('5678', '9876543210987654' , 'janesmith@gmail.com', 'jane_smith', 'secure_pass'),
-    ('4321', '1111222233334444' , 'bobjones@gmail.com', 'bob_jones', 'p@ssw0rd');
+    ('1234', '1234567890123456', 'john_doe', 'password123'),
+    ('5678', '9876543210987654', 'jane_smith', 'secure_pass'),
+    ('4321', '1111222233334444', 'bob_jones', 'p@ssw0rd');
 
 	INSERT INTO Account (account_type, balance)
 VALUES
@@ -164,4 +163,3 @@ VALUES (1234567890123456, 1),
        (1234567890123457, 2),
        (1234567890123458, 3);
 
-	  select * from Registered
